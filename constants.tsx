@@ -12,13 +12,14 @@ export const COLORS = {
 
 /**
  * PRODUCTION IMAGE PATHS
- * Using relative paths (no leading slash) to ensure they resolve relative to index.html.
- * IMPORTANT: Netlify is case-sensitive. 'hero.jpg' is NOT 'hero.JPG'.
+ * 1. Use leading slashes (e.g., '/images/...') to resolve from the site root.
+ * 2. Ensure filenames match your actual files (case-sensitive on Netlify).
+ * 3. Don't include 'public/' in the path if 'public' is your root deployment folder.
  */
 export const IMAGES = {
   // Hero and About Sections
-  hero: 'public/images/hero.png',
-  whyUs: 'public/images/about.jpg',
+  hero: '/images/general/hero.png',
+  whyUs: '/images/general/about.jpg',
   parentSaima: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100&h=100',
   
   // Programs
