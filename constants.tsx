@@ -17,8 +17,8 @@ export const COLORS = {
  */
 export const IMAGES = {
   // Hero and About Sections
-  hero: 'public/hero.png',
-  whyUs: 'public/about.jpg',
+  hero: './public/images/hero.png',
+  whyUs: 'public/images/about.jpg',
   parentSaima: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100&h=100',
   
   // Programs
