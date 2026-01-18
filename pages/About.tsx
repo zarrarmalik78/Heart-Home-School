@@ -1,13 +1,12 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TEACHERS } from '../constants';
-import CloudDivider from '../components/CloudDivider';
+import { TEACHERS } from '../constants.tsx';
+import CloudDivider from '../components/CloudDivider.tsx';
 
 const About: React.FC = () => {
   return (
     <div>
-      {/* Header - No pt-24 on parent to allow navbar to sit on dark bg */}
       <section className="bg-[#0B172A] pt-32 md:pt-48 pb-0 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 text-white relative z-10">
           <motion.h1 
@@ -30,7 +29,6 @@ const About: React.FC = () => {
         <CloudDivider />
       </section>
 
-      {/* Mission/Vision */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
@@ -56,7 +54,6 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Meet the Educators */}
       <section className="py-24 bg-[#FDFCF8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[#FF4D4D] font-bold text-lg mb-2 block uppercase tracking-wider">The Team</span>

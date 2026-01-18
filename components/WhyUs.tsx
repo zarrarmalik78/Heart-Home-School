@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { CheckCircle2, Cloud, Sun, Heart } from 'lucide-react';
-import { IMAGES } from '../constants';
+import { IMAGES } from '../constants.tsx';
 
 const WhyUs: React.FC = () => {
   // Explicitly typing variants to avoid string literal inference issues

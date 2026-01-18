@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { PROGRAMS } from '../constants';
+import { PROGRAMS } from '../constants.tsx';
 import { Link } from 'react-router-dom';
 
 // Added interface for props to ensure React.FC compatibility

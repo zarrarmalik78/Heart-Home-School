@@ -3,8 +3,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Sparkles, Star, Sun, Cloud, Heart } from 'lucide-react';
-import CloudDivider from './CloudDivider';
-import { IMAGES } from '../constants';
+import CloudDivider from './CloudDivider.tsx';
+import { IMAGES } from '../constants.tsx';
 
 const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
       });
     };
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('scroll', handleMouseMove);
   }, []);
 
   const springConfig = { damping: 25, stiffness: 120 };

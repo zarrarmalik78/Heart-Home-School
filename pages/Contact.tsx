@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
-import CloudDivider from '../components/CloudDivider';
+import CloudDivider from '../components/CloudDivider.tsx';
 
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -14,7 +14,6 @@ const Contact: React.FC = () => {
 
   return (
     <div>
-      {/* Header - No pt-24 on parent to allow navbar to sit on dark bg */}
       <section className="bg-[#0B172A] pt-32 md:pt-48 pb-0 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 text-white relative z-10">
           <motion.h1 

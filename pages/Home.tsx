@@ -1,10 +1,10 @@
 
 import React from 'react';
-import Hero from '../components/Hero';
-import ProgramsGrid from '../components/ProgramsGrid';
-import WhyUs from '../components/WhyUs';
+import Hero from '../components/Hero.tsx';
+import ProgramsGrid from '../components/ProgramsGrid.tsx';
+import WhyUs from '../components/WhyUs.tsx';
 import { motion } from 'framer-motion';
-import { IMAGES } from '../constants';
+import { IMAGES } from '../constants.tsx';
 
 const Home: React.FC = () => {
   return (

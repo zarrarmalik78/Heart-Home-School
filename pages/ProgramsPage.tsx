@@ -1,14 +1,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PROGRAMS } from '../constants';
-import CloudDivider from '../components/CloudDivider';
+import { PROGRAMS } from '../constants.tsx';
+import CloudDivider from '../components/CloudDivider.tsx';
 import { Check } from 'lucide-react';
 
 const ProgramsPage: React.FC = () => {
   return (
     <div>
-      {/* Header - No pt-24 on parent to allow navbar to sit on dark bg */}
       <section className="bg-[#0B172A] pt-32 md:pt-48 pb-0 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 text-white relative z-10">
           <motion.h1 
