@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Program, Teacher, Testimony } from './types';
 
@@ -12,14 +11,14 @@ export const COLORS = {
 };
 
 /**
- * ASSET CONFIGURATION
- * To use your own images: 
- * 1. Put them in the /images folder.
- * 2. Update the paths below (e.g., "images/general/hero.jpg")
+ * PRODUCTION IMAGE PATHS
+ * Using relative paths (no leading slash) to ensure they resolve relative to index.html.
+ * IMPORTANT: Netlify is case-sensitive. 'hero.jpg' is NOT 'hero.JPG'.
  */
 export const IMAGES = {
-  hero: 'images/hero.png',
-  whyUs: 'images/about.jpg',
+  // Hero and About Sections
+  hero: 'images/general/hero.jpg',
+  whyUs: 'images/general/about.jpg',
   parentSaima: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100&h=100',
   
   // Programs
