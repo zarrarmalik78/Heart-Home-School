@@ -18,8 +18,8 @@ export const COLORS = {
  * 2. Update the paths below (e.g., "images/general/hero.jpg")
  */
 export const IMAGES = {
-  hero: 'https://picsum.photos/seed/happykids/800/800',
-  whyUs: 'https://picsum.photos/seed/learn/800/1000',
+  hero: './images/general/hero.png',
+  whyUs: './images/general/about.png',
   parentSaima: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100&h=100',
   
   // Programs
