@@ -12,14 +12,12 @@ export const COLORS = {
 
 /**
  * PRODUCTION IMAGE PATHS
- * 1. Use leading slashes (e.g., '/images/...') to resolve from the site root.
- * 2. Ensure filenames match your actual files (case-sensitive on Netlify).
- * 3. Don't include 'public/' in the path if 'public' is your root deployment folder.
+ * Centralized image references for the application.
  */
 export const IMAGES = {
   // Hero and About Sections
-  hero: './images/general/hero.png',
-  whyUs: './images/general/about.jpg',
+  hero: 'https://westshorefurniture.com/wp-content/uploads/2025/05/What-Are-Preschool-Classroom-Rules.webp',
+  whyUs: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2040&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   parentSaima: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100&h=100',
   
   // Programs

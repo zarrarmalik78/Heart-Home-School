@@ -1,4 +1,3 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -23,7 +22,7 @@ const Hero: React.FC = () => {
       });
     };
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('scroll', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   const springConfig = { damping: 25, stiffness: 120 };
@@ -35,6 +34,30 @@ const Hero: React.FC = () => {
   const textY = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const bgElementY = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const rotateY = useTransform(scrollYProgress, [0, 1], [0, 25]);
+
+  // Animation Variants for staggered text
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: [0.22, 1, 0.36, 1] // Premium ease-out expo
+      }
+    }
+  };
 
   return (
     <section ref={containerRef} className="relative bg-[#0B172A] pt-32 md:pt-48 pb-0 overflow-hidden">
@@ -48,7 +71,7 @@ const Hero: React.FC = () => {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#4D96FF] rounded-full blur-[120px] pointer-events-none"
       />
 
-      {/* Whimsical Floating Icons with Mouse Parallax */}
+      {/* Whimsical Floating Icons */}
       <motion.div 
         style={{ y: bgElementY, x: mouseX, rotate: useTransform(scrollYProgress, [0, 1], [0, 360]) }}
         className="absolute top-20 right-[15%] text-white/5 pointer-events-none"
@@ -64,60 +87,44 @@ const Hero: React.FC = () => {
       >
         <Star size={40} fill="currentColor" />
       </motion.div>
-      
-      <motion.div 
-        style={{ x: useSpring(-mousePos.x, springConfig), y: useSpring(-mousePos.y, springConfig) }}
-        animate={{ y: [0, 30, 0], scale: [1, 1.2, 1] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[60%] right-20 hidden lg:block text-[#4D96FF]"
-      >
-        <Sparkles size={48} />
-      </motion.div>
-
-      <motion.div 
-        style={{ x: useSpring(mousePos.x * 0.5, springConfig) }}
-        animate={{ x: [-20, 20, -20] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-40 left-20 hidden lg:block text-white/10"
-      >
-        <Cloud size={120} fill="currentColor" />
-      </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+          {/* Left Content with Staggered Animations */}
           <motion.div
             style={{ y: textY }}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
             className="text-white text-center lg:text-left"
           >
             <motion.div 
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              variants={itemVariants}
               className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-[#FFD93D] mb-6 border border-white/20"
             >
               <Sparkles size={18} />
               <span className="font-bold uppercase tracking-wider text-sm">Now Enrolling for 2026-27</span>
             </motion.div>
             
-            <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6">
+            <motion.h1 
+              variants={itemVariants}
+              className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6"
+            >
               Care, Play, and <span className="text-[#FFD93D]">Learning</span> for Little Ones
-            </h1>
+            </motion.h1>
             
-            <p className="text-xl text-gray-300 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            <motion.p 
+              variants={itemVariants}
+              className="text-xl text-gray-300 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed"
+            >
               Heart Home School provides a trusted daycare with gentle learning, caring teachers, and a joyful environment where your child feels safe every day.
-            </p>
+            </motion.p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-              <motion.div 
-                whileHover={{ scale: 1.05, y: -5 }} 
-                whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto"
-              >
+            <motion.div 
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4"
+            >
+              <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
                 <Link
                   to="/programs"
                   className="bg-[#6BCB77] hover:bg-[#5bb866] text-white px-10 py-5 rounded-full text-xl font-bold shadow-[0_10px_0_0_#4a9c53] block text-center transform transition active:translate-y-2 active:shadow-none"
@@ -125,11 +132,7 @@ const Hero: React.FC = () => {
                   Explore Programs
                 </Link>
               </motion.div>
-              <motion.div 
-                whileHover={{ scale: 1.05, y: -5 }} 
-                whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto"
-              >
+              <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
                 <Link
                   to="/contact"
                   className="bg-white hover:bg-gray-100 text-[#0B172A] px-10 py-5 rounded-full text-xl font-bold border-2 border-transparent block text-center transition shadow-lg"
@@ -137,7 +140,7 @@ const Hero: React.FC = () => {
                   Contact Us
                 </Link>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Right Imagery */}
